@@ -4,7 +4,7 @@ ARG ADCORE_VERSION=3.10b1.1
 
 FROM ${REGISTRY}/epics/epics-adcore:${ADCORE_VERSION}
 
-ARG ADPANDABLOCKS_VERSION=4-10
+ARG ADPANDABLOCKS_VERSION=4-12
 
 # install additional tools and libs
 USER root
