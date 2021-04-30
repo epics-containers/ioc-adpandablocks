@@ -1,0 +1,8 @@
+BUILD_IOCS=NO
+
+CROSS_COMPILER_TARGET_ARCHS =
+
+XML2_INCLUDE=-I/usr/include/libxml2
+
+BOOST_LIB       = /usr/lib
+BOOST_INCLUDE   = -I/usr/include
