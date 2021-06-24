@@ -27,7 +27,7 @@ COPY --chown=${USER_UID}:${USER_GID} configure \
 RUN mv ADPandABlocks-${ADPANDABLOCKS_VERSION}/etc ADPandABlocks-${ADPANDABLOCKS_VERSION}/_etc
 
 # update the generic IOC Makefile to include the new support
-COPY --chown=${USER_UID}:${USER_GID} Makefile ${SUPPORT}/ioc/iocApp/src
+COPY --chown=${USER_UID}:${USER_GID} Makefile ${EPICS_ROOT}/ioc/iocApp/src
 
 # update dependencies and build
 # update dependencies and build the support modules and the ioc
