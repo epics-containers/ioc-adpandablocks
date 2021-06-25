@@ -1,8 +1,8 @@
 # EPICS SynApps Dockerfile
 ARG REGISTRY=ghcr.io/epics-containers
-ARG ADCORE_VERSION=3.10r1.0
+ARG ADCORE_VERSION=3.10r2.0
 
-FROM ${REGISTRY}/epics-adcore:${ADCORE_VERSION}
+FROM ${REGISTRY}/epics-areadetector:${ADCORE_VERSION}
 
 ARG ADPANDABLOCKS_VERSION=4-12
 
@@ -11,7 +11,6 @@ USER root
 
 RUN apt-get update && apt-get upgrade -y && \
     apt-get install -y --no-install-recommends \
-    libboost-dev \
     libxml2-dev \
     libxslt1-dev
 
@@ -29,8 +28,8 @@ RUN mv ADPandABlocks-${ADPANDABLOCKS_VERSION}/etc ADPandABlocks-${ADPANDABLOCKS_
 # update the generic IOC Makefile to include the new support
 COPY --chown=${USER_UID}:${USER_GID} Makefile ${EPICS_ROOT}/ioc/iocApp/src
 
-# update dependencies and build
 # update dependencies and build the support modules and the ioc
 RUN python3 module.py dependencies && \
-    make && \
+    make -C ${SUPPORT}/ADPandABlocks-${ADPANDABLOCKS_VERSION} && \
+    make -C ${EPICS_ROOT}/ioc && \
     make  clean
