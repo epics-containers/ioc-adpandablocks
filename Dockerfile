@@ -1,6 +1,6 @@
 # EPICS SynApps Dockerfile
 ARG REGISTRY=ghcr.io/epics-containers
-ARG ADCORE_VERSION=3.10r2.0
+ARG ADCORE_VERSION=3.10r3.0
 
 ARG ADPANDABLOCKS_VERSION=4-12
 
@@ -50,7 +50,7 @@ USER root
 RUN apt-get update && apt-get upgrade -y && \
     apt-get install -y --no-install-recommends \
     libxml2 \
-    libxslt1
+    libxslt1.1
 
 USER ${USERNAME}
 
