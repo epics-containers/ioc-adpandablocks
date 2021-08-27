@@ -2,7 +2,7 @@
 ARG REGISTRY=ghcr.io/epics-containers
 ARG ADCORE_VERSION=3.10r3.0
 
-ARG ADPANDABLOCKS_VERSION=4-12
+ARG ADPANDABLOCKS_VERSION=4-14
 
 ##### build stage ##############################################################
 
