@@ -1,12 +1,9 @@
 # EPICS SynApps Dockerfile
-ARG REGISTRY=ghcr.io/epics-containers
-ARG ADCORE_VERSION=3.10r3.0
-
 ARG ADPANDABLOCKS_VERSION=4-14
 
 ##### build stage ##############################################################
 
-FROM ${REGISTRY}/epics-areadetector:${ADCORE_VERSION} AS developer
+FROM ghcr.io/epics-containers/epics-areadetector:3.10r3.0 AS developer
 
 ARG ADPANDABLOCKS_VERSION
 
@@ -40,7 +37,7 @@ RUN python3 module.py dependencies && \
 
 ##### runtime stage ############################################################
 
-FROM ${REGISTRY}/epics-areadetector:${ADCORE_VERSION}.run AS runtime
+FROM ghcr.io/epics-containers/epics-areadetector:3.10r3.0.run AS runtime
 
 ARG ADPANDABLOCKS_VERSION
 
